@@ -23,8 +23,12 @@ Steps:
 Deliverables:
 
 - Screenshot of root MFA enabled.
+  ![](./Screenshots/Lab-1/L1_Credentials_MFA.png)
 - Screenshot of billing alert or budget alert.
 - Short note explaining why root user should not be used daily.
+  1. Root has no permission ceiling — unlike an IAM user, it can't have a policy boundary attached or be scoped to specific actions. There's nothing to restrict.
+  2. Root can execute actions with no upper bound on damage — closing the account, changing the payment method, deleting unversioned resources. The risk isn't that every mistake is unrecoverable, it's that the ceiling on how bad a mistake can be is uncapped, unlike a scoped IAM user where the blast radius is limited by attached policy.
+  3. CloudTrail logs root actions as "root," not as a named individual — so on a team, shared root use makes it impossible to trace which person did what.
 
 Security note:
 
