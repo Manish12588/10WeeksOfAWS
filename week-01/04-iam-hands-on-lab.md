@@ -23,6 +23,20 @@ Create:
 - Policy: `AmazonS3ReadOnlyAccess`
 - User: `learner-s3`
 
+Steps to create Group:
+
+1. Login into AWS console with root user
+2. Click on IAM -> IAM user groups under "Access Management"
+3. Click on create group button
+4. Name the group as "S3ReadOnlyGroup" and policy "AmazonS3ReadOnlyAccess"
+
+Steps to create User:
+
+1. Login into AWS console with root user
+2. Click on IAM -> IAM user under "Access Management"
+3. Click on create user button
+4. Name the user as "learner-s3" and attached it to "S3ReadOnlyGroup"
+
 Test:
 
 - Sign in as `learner-s3`.
@@ -66,6 +80,13 @@ Create a customer managed policy:
 CustomS3ReadOnlyTrainingPolicy
 ```
 
+Steps to create Policy:
+
+1. Login into AWS console with root user
+2. Click on IAM -> Policies under "Access Management"
+3. Click on create policy button
+4. Select service as "S3"
+
 Use this structure and replace `YOUR-BUCKET-NAME`:
 
 ```json
@@ -73,8 +94,16 @@ Use this structure and replace `YOUR-BUCKET-NAME`:
   "Version": "2012-10-17",
   "Statement": [
     { "Effect": "Allow", "Action": ["s3:ListAllMyBuckets"], "Resource": "*" },
-    { "Effect": "Allow", "Action": ["s3:ListBucket"], "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME" },
-    { "Effect": "Allow", "Action": ["s3:GetObject"], "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*" }
+    {
+      "Effect": "Allow",
+      "Action": ["s3:ListBucket"],
+      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME"
+    },
+    {
+      "Effect": "Allow",
+      "Action": ["s3:GetObject"],
+      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+    }
   ]
 }
 ```
@@ -82,9 +111,27 @@ Use this structure and replace `YOUR-BUCKET-NAME`:
 Add these in your submission:
 
 - Screenshots of group, user, and attached policy.
+  ![](./submissions/Manish-Kumar/screenshots/user-groups.png)
+
+  ![](./submissions/Manish-Kumar/screenshots/user-with%20permission.png)
+
 - Screenshot of allowed access.
+  ![](./submissions/Manish-Kumar/screenshots/user-with-s3-view.png)
+
+  ![](./submissions/Manish-Kumar/screenshots/user-ec2-resource-view.png)
+
+  ![](./submissions/Manish-Kumar/screenshots/user-billing-view-dashboard.png)
+
 - Screenshot or note for denied access.
+
+  ![](./submissions/Manish-Kumar/screenshots/permission-denined-s3-create-bucket.png)
+
+  ![](./submissions/Manish-Kumar/screenshots/user-ec2-create-permission-denied.png)
+
+  ![](./submissions/Manish-Kumar/screenshots/user-billing-create-permission-denied.png)
+
 - Policy JSON file in your submission folder.
+  - [CustomS3ReadOnlyTrainingPolicy](./submissions/Manish-Kumar/code-or-policies/CustomS3ReadOnlyTrainingPolicy.json)
 
 ## If You Get Stuck
 

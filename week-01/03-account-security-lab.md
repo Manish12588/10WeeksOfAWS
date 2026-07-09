@@ -26,7 +26,12 @@ Steps:
 Deliverables:
 
 - Screenshot of root MFA enabled.
+  ![](./submissions/Manish-Kumar/screenshots/root-MFA.png)
+
 - Short note explaining why root user should not be used daily.
+  - The root user has full access of AWS account.
+  - It could be risky if I use root use daily, One mistake can affect accounts/resources.
+  - If the root user account got hacked, In this case attacker can get the access of aws account which could be harmful.
 
 ## Lab 2 - Billing Alert
 
@@ -40,9 +45,17 @@ Steps:
 Deliverables:
 
 - Screenshot of billing alert or budget alert.
+  ![](./submissions/Manish-Kumar/screenshots/monthly-budget.png)
+
 - Short note explaining why billing should be monitored from Day 1.
+  - To avoid any unexpected charges.
+  - Keep aws account spend under budget.
+  - As we are using free tier so it helps to be within limit.
+  - Helps to notify if we reach the limit.
 
 ## If You Get Stuck
+
+    - I got stuck in billing alert, So I took help in our community channel.
 
 - Add a screenshot of where you got stuck.
 - Write 2-3 lines explaining the issue.

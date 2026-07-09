@@ -18,6 +18,8 @@ Use:
 - Provider URL: `https://token.actions.githubusercontent.com`
 - Audience: `sts.amazonaws.com`
 
+  ![](./submissions/Manish-Kumar/screenshots/identity-provider.png)
+
 ## Step 2 - Create IAM Role
 
 Create a role with:
