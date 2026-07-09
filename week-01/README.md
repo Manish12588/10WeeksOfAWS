@@ -33,17 +33,17 @@ By the end of this week:
 
 ## 5-Day Practice Sequence
 
-| Seq | When | Practice | File |
-|---:|---|---|---|
-| 01 | Day 1 | Learn cloud foundations | [01-cloud-foundations.md](./01-cloud-foundations.md) |
-| 02 | Day 2 | Learn IAM basics | [02-iam-basics.md](./02-iam-basics.md) |
-| 03 | Day 3 | Secure AWS account and billing | [03-account-security-lab.md](./03-account-security-lab.md) |
-| 04 | Day 4 | Practice IAM users, groups, and policies | [04-iam-hands-on-lab.md](./04-iam-hands-on-lab.md) |
-| 05 | Day 5 | Try optional GitHub OIDC challenge | [05-github-oidc-challenge.md](./05-github-oidc-challenge.md) |
-| 06 | End of week | Clean up test AWS resources | [06-cleanup.md](./06-cleanup.md) |
-| 07 | End of week | Submit your weekly work | [07-submission-format.md](./07-submission-format.md) |
-| 08 | End of week | Post learning update on LinkedIn | [08-linkedin-post.md](./08-linkedin-post.md) |
-| 09 | Before next week | Revise for quiz | [09-quiz-prep.md](./09-quiz-prep.md) |
+| Seq | When             | Practice                                 | File                                                         |
+| --: | ---------------- | ---------------------------------------- | ------------------------------------------------------------ |
+|  01 | Day 1            | Learn cloud foundations                  | [01-cloud-foundations.md](./01-cloud-foundations.md)         |
+|  02 | Day 2            | Learn IAM basics                         | [02-iam-basics.md](./02-iam-basics.md)                       |
+|  03 | Day 3            | Secure AWS account and billing           | [03-account-security-lab.md](./03-account-security-lab.md)   |
+|  04 | Day 4            | Practice IAM users, groups, and policies | [04-iam-hands-on-lab.md](./04-iam-hands-on-lab.md)           |
+|  05 | Day 5            | Try optional GitHub OIDC challenge       | [05-github-oidc-challenge.md](./05-github-oidc-challenge.md) |
+|  06 | End of week      | Clean up test AWS resources              | [06-cleanup.md](./06-cleanup.md)                             |
+|  07 | End of week      | Submit your weekly work                  | [07-submission-format.md](./07-submission-format.md)         |
+|  08 | End of week      | Post learning update on LinkedIn         | [08-linkedin-post.md](./08-linkedin-post.md)                 |
+|  09 | Before next week | Revise for quiz                          | [09-quiz-prep.md](./09-quiz-prep.md)                         |
 
 ## Minimum Submission For Week 1
 
@@ -64,15 +64,15 @@ Submit at least:
 
 ## Exam + Pillar Mapping
 
-| Topic | Exam Mapping | Pillar | Best Practice |
-|---|---|---|---|
-| Root MFA | Domain 1 | Security | Protect root user |
-| Billing alerts | Domain 4 | Cost Optimization | Monitor cost early |
-| Shared responsibility | Domain 1 | Security | Know AWS vs customer duties |
-| IAM groups | Domain 1 | Security | Manage permissions centrally |
-| IAM roles | Domain 1 | Security | Prefer temporary access |
-| IAM policies | Domain 1 | Security | Use least privilege |
-| GitHub OIDC | Domain 1 | Security | Avoid long-lived access keys |
+| Topic                 | Exam Mapping | Pillar            | Best Practice                |
+| --------------------- | ------------ | ----------------- | ---------------------------- |
+| Root MFA              | Domain 1     | Security          | Protect root user            |
+| Billing alerts        | Domain 4     | Cost Optimization | Monitor cost early           |
+| Shared responsibility | Domain 1     | Security          | Know AWS vs customer duties  |
+| IAM groups            | Domain 1     | Security          | Manage permissions centrally |
+| IAM roles             | Domain 1     | Security          | Prefer temporary access      |
+| IAM policies          | Domain 1     | Security          | Use least privilege          |
+| GitHub OIDC           | Domain 1     | Security          | Avoid long-lived access keys |
 
 ## Rules
 
