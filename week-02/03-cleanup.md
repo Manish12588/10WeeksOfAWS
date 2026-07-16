@@ -6,13 +6,24 @@ and does not create unnecessary cost.
 ## Cleanup Order
 
 1. Terminate the test EC2 instance.
+   ![](./submissions/Manish-Kumar/screenshots/EC2_Terminated.png)
+
 2. Confirm that any attached EBS volume set to persist was deleted if no longer
    needed.
+   ![](./submissions/Manish-Kumar/screenshots/EBS_deleted.png)
+
 3. Delete the objects from the test S3 bucket.
+   ![](./submissions/Manish-Kumar/screenshots/Deleted_object_from_s3_bucket.png)
+
 4. Delete the empty test bucket.
+   ![](./submissions/Manish-Kumar/screenshots/Deleted_s3_bucket.png)
+
 5. Delete the inline policy or delete the test IAM role.
+   ![](./submissions/Manish-Kumar/screenshots/Deleted_Policy.png)
+
 6. Confirm that the related instance profile was removed with the role. If you
    created it manually, remove it separately.
+   ![](./submissions/Manish-Kumar/screenshots/Deleted_Role.png)
 
 ## Final Check
 

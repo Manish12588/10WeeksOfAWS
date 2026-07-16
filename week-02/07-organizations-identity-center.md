@@ -24,17 +24,17 @@ consolidated bill.
 
 ## Key Concepts
 
-| Concept | Meaning |
-|---|---|
-| AWS Organization | A collection of AWS accounts managed together |
-| Organization Root | The top hierarchy container; it is not the AWS root user |
-| Management account | Administers the organization and pays member-account charges |
-| Member account | An account that normally contains workloads |
-| Organizational unit | A logical group of accounts that inherit common policies |
-| Service control policy | A guardrail that limits maximum available permissions |
-| Permission set | An IAM permission template provisioned to assigned accounts |
-| Cross-account role | A role trusted by another account and assumed through STS |
-| Consolidated billing | Central payment and organization-wide cost visibility |
+| Concept                | Meaning                                                      |
+| ---------------------- | ------------------------------------------------------------ |
+| AWS Organization       | A collection of AWS accounts managed together                |
+| Organization Root      | The top hierarchy container; it is not the AWS root user     |
+| Management account     | Administers the organization and pays member-account charges |
+| Member account         | An account that normally contains workloads                  |
+| Organizational unit    | A logical group of accounts that inherit common policies     |
+| Service control policy | A guardrail that limits maximum available permissions        |
+| Permission set         | An IAM permission template provisioned to assigned accounts  |
+| Cross-account role     | A role trusted by another account and assumed through STS    |
+| Consolidated billing   | Central payment and organization-wide cost visibility        |
 
 ## Why Use Multiple Accounts?
 
@@ -114,10 +114,10 @@ access portal creates an STS assumed-role session.
 
 ## Two Cross-Account Role Patterns
 
-| Role pattern | Purpose |
-|---|---|
-| `AWSReservedSSO_CloudAdhar-Admin_...` | Identity Center access-portal session |
-| `OrganizationAccountAccessRole` | Management-account access to a member account created through Organizations |
+| Role pattern                          | Purpose                                                                     |
+| ------------------------------------- | --------------------------------------------------------------------------- |
+| `AWSReservedSSO_CloudAdhar-Admin_...` | Identity Center access-portal session                                       |
+| `OrganizationAccountAccessRole`       | Management-account access to a member account created through Organizations |
 
 Both use temporary STS role sessions. Avoid shared keys and duplicate IAM users
 across accounts.

@@ -31,6 +31,16 @@ EC2 instance
 
 Save your bucket name. The examples below use `YOUR-BUCKET-NAME`.
 
+**Steps performed to create S3 bucket:**
+
+1. Login with root user to AWS console.
+2. Select amazon S3 service
+3. Click on create bucket button
+4. Created a bucket with "week02-manishkumar-s3-bucket" name.
+5. Upload a sample text file with "Hello Manish from week 02 of AWS course" named as "day3-test.txt"
+
+   ![](./submissions/Manish-Kumar/screenshots/day3_S3_bucket.png)
+
 ## Step 2 - Create the EC2 Role
 
 1. Open IAM -> Roles -> Create role.
@@ -41,6 +51,22 @@ Save your bucket name. The examples below use `YOUR-BUCKET-NAME`.
 
 Confirm that its trust policy allows the `ec2.amazonaws.com` service principal
 to call `sts:AssumeRole`.
+
+**Steps performed to create EC2 role:**
+
+1. Login with root user to AWS console.
+2. Select IAM service.
+3. Click on **Role** under **Access Management** section.
+4. Click on create role
+5. Select **AWS service** as the trusted entity.
+6. Select **EC2** as the use case.
+7. Name the role `Week2Day3EC2S3ReadRole`.
+8. Do not attach broad S3 permissions.
+
+Confirm that its trust policy allows the `ec2.amazonaws.com` service principal
+to call `sts:AssumeRole`.
+
+![](./submissions/Manish-Kumar/screenshots/Week2Day3EC2S3ReadRole_trustRelationship.png)
 
 ## Step 3 - Add Least-Privilege S3 Permissions
 
@@ -55,13 +81,13 @@ of `YOUR-BUCKET-NAME`:
       "Sid": "ListOneBucket",
       "Effect": "Allow",
       "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME"
+      "Resource": "arn:aws:s3:::week02-manishkumar-s3-bucket"
     },
     {
       "Sid": "ReadObjectsInOneBucket",
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::YOUR-BUCKET-NAME/*"
+      "Resource": "arn:aws:s3:::week02-manishkumar-s3-bucket/*"
     }
   ]
 }
@@ -82,6 +108,8 @@ permissions.
 If the instance already exists, use **Actions -> Security -> Modify IAM role**
 and attach the role.
 
+![](./submissions/Manish-Kumar/screenshots/EC2_Instance_with_IAM_Role.png)
+
 ## Step 5 - Test Allowed Access
 
 On the EC2 instance, confirm that no credentials were manually configured:
@@ -89,6 +117,8 @@ On the EC2 instance, confirm that no credentials were manually configured:
 ```bash
 aws configure list
 ```
+
+![](./submissions/Manish-Kumar/screenshots/aws_configure_list.png)
 
 Then test the allowed actions:
 
@@ -101,8 +131,13 @@ aws s3 cp s3://YOUR-BUCKET-NAME/day3-test.txt -
 Expected result:
 
 - The caller identity shows an assumed-role identity.
+  ![](./submissions/Manish-Kumar/screenshots/aws_get_caller_identity.png)
+
 - The bucket can be listed.
+  ![](./submissions/Manish-Kumar/screenshots/aws_ls_bucket.png)
+
 - The test object can be read.
+  ![](./submissions/Manish-Kumar/screenshots/copy_file_from_bucket_to_local.png)
 
 ## Step 6 - Test Denied Access
 
@@ -112,6 +147,8 @@ Try to upload a harmless test object:
 printf 'write test\n' > /tmp/write-test.txt
 aws s3 cp /tmp/write-test.txt s3://YOUR-BUCKET-NAME/write-test.txt
 ```
+
+![](./submissions/Manish-Kumar/screenshots/access_denied.png)
 
 Expected result: `AccessDenied`, because the permission policy does not allow
 `s3:PutObject`.

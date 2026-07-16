@@ -8,9 +8,17 @@ another AWS service without storing permanent credentials.
 Write short answers in your own words:
 
 1. Why should an application avoid storing access keys? -->
+   - It might get leaked if you keep it for long term, to avoid such theft we use temporary credentials because it gets invalid
+     after few days.
+
 2. Who is allowed to assume a role? -->
+   - An IAM identity is allowed to assume the role. They are explicitly granted permission by the role trust policy.
+
 3. What is the role allowed to do after it is assumed? -->
+   - It can perform only the allowed actions set in role permission policy.
+
 4. Why do temporary credentials expire? -->
+   - Primarily to reduce the security risk by limiting the lifespan of active access token.
 
 ## IAM Role
 
@@ -29,9 +37,9 @@ A principal can be:
 
 Both policies are needed, but they answer different questions.
 
-| Policy | Main question | Typical content |
-|---|---|---|
-| Trust policy | Who can assume this role? | Principal and `sts:AssumeRole` |
+| Policy            | Main question                 | Typical content                         |
+| ----------------- | ----------------------------- | --------------------------------------- |
+| Trust policy      | Who can assume this role?     | Principal and `sts:AssumeRole`          |
 | Permission policy | What can the assumed role do? | Allowed or denied actions and resources |
 
 An EC2 trust policy looks like this:
