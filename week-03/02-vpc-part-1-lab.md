@@ -29,12 +29,12 @@ outbound IPv4 internet path until Part 2.
 
 ## Part 2 - Create Four Subnets
 
-| Name | AZ | CIDR | Auto-assign public IPv4 |
-|---|---|---|---|
-| `cloudadhar-public-a` | First AZ | `10.10.1.0/24` | Enabled |
-| `cloudadhar-private-a` | First AZ | `10.10.11.0/24` | Disabled |
-| `cloudadhar-public-b` | Second AZ | `10.10.2.0/24` | Enabled |
-| `cloudadhar-private-b` | Second AZ | `10.10.12.0/24` | Disabled |
+| Name                   | AZ        | CIDR            | Auto-assign public IPv4 |
+| ---------------------- | --------- | --------------- | ----------------------- |
+| `cloudadhar-public-a`  | First AZ  | `10.10.1.0/24`  | Enabled                 |
+| `cloudadhar-private-a` | First AZ  | `10.10.11.0/24` | Disabled                |
+| `cloudadhar-public-b`  | Second AZ | `10.10.2.0/24`  | Enabled                 |
+| `cloudadhar-private-b` | Second AZ | `10.10.12.0/24` | Disabled                |
 
 Verify that every subnet is inside `10.10.0.0/16` and no ranges overlap.
 

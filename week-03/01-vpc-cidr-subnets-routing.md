@@ -10,17 +10,17 @@ Goal: Understand the network building blocks before creating resources.
 
 ## Key Concepts
 
-| Concept | Meaning |
-|---|---|
-| VPC | A logically isolated virtual network in one AWS Region |
-| Subnet | A VPC CIDR range that belongs to one Availability Zone |
-| CIDR | Address range plus network prefix, such as `10.10.0.0/16` |
-| Route table | Destination-and-target rules that select a traffic path |
-| Local route | Automatic route for communication inside the VPC CIDR |
-| Internet Gateway | Highly available VPC gateway targeted by internet routes |
+| Concept          | Meaning                                                       |
+| ---------------- | ------------------------------------------------------------- |
+| VPC              | A logically isolated virtual network in one AWS Region        |
+| Subnet           | A VPC CIDR range that belongs to one Availability Zone        |
+| CIDR             | Address range plus network prefix, such as `10.10.0.0/16`     |
+| Route table      | Destination-and-target rules that select a traffic path       |
+| Local route      | Automatic route for communication inside the VPC CIDR         |
+| Internet Gateway | Highly available VPC gateway targeted by internet routes      |
 | Main route table | Fallback route table for subnets without explicit association |
-| Elastic IP | Static public IPv4 allocated to the account and reassociable |
-| Egress-only IGW | Outbound-initiated IPv6 path that blocks unsolicited inbound |
+| Elastic IP       | Static public IPv4 allocated to the account and reassociable  |
+| Egress-only IGW  | Outbound-initiated IPv6 path that blocks unsolicited inbound  |
 
 ## Scope Rules
 
@@ -40,22 +40,22 @@ Total IPv4 addresses = 2^(32 - prefix)
 AWS usable subnet addresses = total - 5
 ```
 
-| CIDR | Total IPv4 | AWS usable |
-|---|---:|---:|
-| `/16` | 65,536 | 65,531 |
-| `/20` | 4,096 | 4,091 |
-| `/24` | 256 | 251 |
-| `/26` | 64 | 59 |
-| `/28` | 16 | 11 |
+| CIDR  | Total IPv4 | AWS usable |
+| ----- | ---------: | ---------: |
+| `/16` |     65,536 |     65,531 |
+| `/20` |      4,096 |      4,091 |
+| `/24` |        256 |        251 |
+| `/26` |         64 |         59 |
+| `/28` |         16 |         11 |
 
 For `10.10.1.0/24`, AWS reserves:
 
-| Address | Purpose |
-|---|---|
-| `10.10.1.0` | Network address |
-| `10.10.1.1` | VPC router |
-| `10.10.1.2` | Amazon-provided DNS |
-| `10.10.1.3` | Future use |
+| Address       | Purpose                                             |
+| ------------- | --------------------------------------------------- |
+| `10.10.1.0`   | Network address                                     |
+| `10.10.1.1`   | VPC router                                          |
+| `10.10.1.2`   | Amazon-provided DNS                                 |
+| `10.10.1.3`   | Future use                                          |
 | `10.10.1.255` | Network broadcast address; broadcast is unsupported |
 
 Avoid overlapping CIDRs. Overlap blocks or complicates later VPC, Transit
@@ -80,13 +80,13 @@ each subnet size.
 
 ## Week 3 IP Plan
 
-| Resource | CIDR | Scope | Purpose |
-|---|---|---|---|
-| VPC | `10.10.0.0/16` | Region | Overall network boundary |
-| Public-A | `10.10.1.0/24` | AZ A | Public tier |
-| Public-B | `10.10.2.0/24` | AZ B | Public tier |
-| Private-A | `10.10.11.0/24` | AZ A | Private tier |
-| Private-B | `10.10.12.0/24` | AZ B | Private tier |
+| Resource  | CIDR            | Scope  | Purpose                  |
+| --------- | --------------- | ------ | ------------------------ |
+| VPC       | `10.10.0.0/16`  | Region | Overall network boundary |
+| Public-A  | `10.10.1.0/24`  | AZ A   | Public tier              |
+| Public-B  | `10.10.2.0/24`  | AZ B   | Public tier              |
+| Private-A | `10.10.11.0/24` | AZ A   | Private tier             |
+| Private-B | `10.10.12.0/24` | AZ B   | Private tier             |
 
 Each `/24` subnet has 256 total and 251 usable IPv4 addresses.
 
@@ -94,11 +94,11 @@ Each `/24` subnet has 256 total and 251 usable IPv4 addresses.
 
 A subnet name does not make it public or private.
 
-| Route table | Routes | Associated subnets |
-|---|---|---|
-| Public | local + `0.0.0.0/0 -> IGW` | Public-A, Public-B |
-| Private | local only in Part 1 | Private-A, Private-B |
-| Main | local only | No intended lab subnet |
+| Route table | Routes                     | Associated subnets     |
+| ----------- | -------------------------- | ---------------------- |
+| Public      | local + `0.0.0.0/0 -> IGW` | Public-A, Public-B     |
+| Private     | local only in Part 1       | Private-A, Private-B   |
+| Main        | local only                 | No intended lab subnet |
 
 A subnet is public when its route table has a route to an Internet Gateway. For
 IPv4 internet communication, an instance also needs a public IPv4 or Elastic
@@ -118,13 +118,13 @@ Examples:
 
 ## IPv4 and IPv6 Decisions
 
-| Address/path | Important behavior |
-|---|---|
-| Private IPv4 | Used inside the VPC and stays with the ENI through stop/start |
-| EC2 public IPv4 | Can change after stop/start and returns to the Amazon pool |
-| Elastic IP | Persistent public IPv4 that can be reassociated |
-| IPv6 | Globally unique; use security controls and deliberate routing |
-| Egress-only IGW | Outbound-initiated IPv6 plus return traffic only |
+| Address/path    | Important behavior                                            |
+| --------------- | ------------------------------------------------------------- |
+| Private IPv4    | Used inside the VPC and stays with the ENI through stop/start |
+| EC2 public IPv4 | Can change after stop/start and returns to the Amazon pool    |
+| Elastic IP      | Persistent public IPv4 that can be reassociated               |
+| IPv6            | Globally unique; use security controls and deliberate routing |
+| Egress-only IGW | Outbound-initiated IPv6 plus return traffic only              |
 
 Public IPv4 and Elastic IP addresses can create charges. Assign them only when
 the workload requires them.
